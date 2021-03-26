@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+</head>
+<body>
+    <input type="text" id="input"value=""><input type="button" value="添加" id="btn1"></input>
+    <ol id="list"></ol>
+    <input type="button" value="清空列表" id="btn2"></input>
+    <script src="./jQuery/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#btn1').click(function(){
+                if(!$('#input').val()){
+                    alert('还没填写内容');
+                    return;
+                }else{
+                    $('#list').prepend('<li id="li">&times;&nbsp;'+$('input').val()+'<span></span></li>');
+                    $('#input').val('');
+                }
+                $('li').click(function(){
+                    $(this).remove();
+                });
+                $('#btn2').click(function(){
+                    $('#list').empty();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
